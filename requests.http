@@ -8,7 +8,10 @@ Content-Type: application/json
         "currency": "INR",
         "unit_amount": "500",
         "product_data": {
-          "name": "hat"
+          "name": "hat",
+          "images": [
+
+          ]
         }
       },
       "quantity": 2
