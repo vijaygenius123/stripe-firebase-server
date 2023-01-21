@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express';
 import cors from 'cors';
 import {createStripeCheckoutSession} from "./checkout";
+import {createPaymentIntent} from "./payments";
 
 export const app = express();
 
@@ -14,5 +15,11 @@ app.get('/', (req: Request, res: Response) => {
 app.post('/checkouts/',async ({body}: Request, res: Response) => {
      res.send(
          await createStripeCheckoutSession(body.line_items)
+     )
+})
+
+app.post('/payments/',async ({body}: Request, res: Response) => {
+     res.send(
+         await createPaymentIntent(body.amount)
      )
 })
